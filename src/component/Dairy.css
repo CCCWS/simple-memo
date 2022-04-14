@@ -1,0 +1,29 @@
+.Dairy {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 500px;
+  background-color: antiquewhite;
+  padding: 20px;
+  border: 2px solid black;
+}
+
+.nameInput {
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.contentInput {
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.select {
+  width: 200px;
+  height: 35px;
+  margin-bottom: 20px;
+}
+
+.save {
+  height: 35px;
+}
