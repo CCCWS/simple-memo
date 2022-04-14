@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import DariyItem from "./DariyItem";
+import { DataContext } from "./Home";
 
-function DariyList({ propData, onDel, onEditUp }) {
+function DariyList() {
+  // context로 데이터를 받음  { propData, onDel, onEditUp } prop X
+  const propData = useContext(DataContext);
+
   return (
     <div className="DariyList">
       <div>
         {propData.map((item) => (
-          <DariyItem
-            key={item.id}
-            {...item}
-            onDel={onDel}
-            onEditUp={onEditUp}
-          />
+          <DariyItem key={item.id} {...item} />
         ))}
       </div>
     </div>

@@ -1,7 +1,13 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import "./DariyItem.css";
+import { FunctionContext } from "./Home";
 
-function DariyItem({ id, name, content, score, createTime, onDel, onEditUp }) {
+function DariyItem({ id, name, content, score, createTime }) {
+  // useEffect(() => {
+  //   console.log(`${id}번 render`);
+  // });
+
+  const { onDel, onEditUp } = useContext(FunctionContext);
   const [edit, setEdit] = useState(false);
   const [editContent, setEditContent] = useState(content);
 
@@ -24,7 +30,9 @@ function DariyItem({ id, name, content, score, createTime, onDel, onEditUp }) {
   };
 
   const onDelete = () => {
-    onDel(id);
+    if (window.confirm("삭제?")) {
+      onDel(id);
+    }
   };
 
   const onChange = (event) => {
@@ -66,4 +74,4 @@ function DariyItem({ id, name, content, score, createTime, onDel, onEditUp }) {
   );
 }
 
-export default DariyItem;
+export default React.memo(DariyItem);

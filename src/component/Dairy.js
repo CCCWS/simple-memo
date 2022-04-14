@@ -1,7 +1,12 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Dairy.css";
+import { FunctionContext } from "./Home";
 
-function Dairy({ onCreate }) {
+function Dairy() {
+  //context로 데이터를 받음, prop으로 안받아도됨 { onCreate }
+
+  const { onCreate } = useContext(FunctionContext);
+
   const nameInput = useRef();
   const contentInput = useRef();
 
@@ -77,4 +82,4 @@ function Dairy({ onCreate }) {
   );
 }
 
-export default Dairy;
+export default React.memo(Dairy);
